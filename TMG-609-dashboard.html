@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMG-609 Milestone 5 - LN Tour Onsale | Progress Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --tm-blue: #026CDF;
+            --tm-dark-blue: #004C97;
+            --tm-navy: #001E47;
+            --bg-dark: #F7FAFC;
+            --bg-card: #FFFFFF;
+            --bg-card-hover: #F7FAFC;
+            --text-primary: #1A202C;
+            --text-secondary: #4A5568;
+            --text-muted: #718096;
+            --border-color: #E2E8F0;
+            --success: #38A169;
+            --warning: #DD6B20;
+            --danger: #E53E3E;
+            --info: #3182CE;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--tm-blue);
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(2, 108, 223, 0.2);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--tm-blue);
+        }
+
+        .stat-detail {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--tm-blue), var(--tm-dark-blue));
+            transition: width 0.3s ease;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .epic-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .epic-card:hover {
+            background: white;
+            border-color: var(--tm-blue);
+            box-shadow: 0 2px 8px rgba(2, 108, 223, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .epic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .epic-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .epic-key {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--tm-blue);
+            font-family: 'Courier New', monospace;
+            padding: 0.25rem 0.625rem;
+            background: rgba(2, 108, 223, 0.1);
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .epic-key:hover {
+            background: rgba(2, 108, 223, 0.2);
+        }
+
+        .epic-meta {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            align-items: center;
+        }
+
+        .story-completion {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.625rem;
+            background: rgba(2, 108, 223, 0.1);
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .story-completion-text {
+            color: var(--tm-blue);
+        }
+
+        .story-completion-percent {
+            font-size: 0.875rem;
+            color: var(--tm-dark-blue);
+        }
+
+        .story-completion.high-completion {
+            background: rgba(56, 161, 105, 0.15);
+        }
+
+        .story-completion.high-completion .story-completion-text {
+            color: var(--success);
+        }
+
+        .story-completion.high-completion .story-completion-percent {
+            color: var(--success);
+        }
+
+        .story-completion.low-completion {
+            background: rgba(221, 107, 32, 0.15);
+        }
+
+        .story-completion.low-completion .story-completion-text {
+            color: var(--warning);
+        }
+
+        .story-completion.low-completion .story-completion-percent {
+            color: var(--warning);
+        }
+
+        .mini-progress-bar {
+            width: 60px;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .mini-progress-fill {
+            height: 100%;
+            background: var(--tm-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mini-progress-fill.high {
+            background: var(--success);
+        }
+
+        .mini-progress-fill.low {
+            background: var(--warning);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-done { background: rgba(56, 161, 105, 0.2); color: var(--success); }
+        .status-in-progress { background: rgba(49, 130, 206, 0.2); color: var(--info); }
+        .status-todo { background: rgba(160, 174, 192, 0.2); color: var(--text-secondary); }
+        .status-blocked { background: rgba(229, 62, 62, 0.2); color: var(--danger); }
+
+        .status-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .status-column {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .status-column-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-column-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-column-count {
+            background: var(--border-color);
+            color: var(--text-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .status-column-header.done {
+            background: linear-gradient(135deg, rgba(56, 161, 105, 0.1), rgba(56, 161, 105, 0.05));
+            border-bottom-color: var(--success);
+        }
+
+        .status-column-header.done .status-column-count {
+            background: rgba(56, 161, 105, 0.2);
+            color: var(--success);
+        }
+
+        .status-column-header.in-progress {
+            background: linear-gradient(135deg, rgba(49, 130, 206, 0.1), rgba(49, 130, 206, 0.05));
+            border-bottom-color: var(--info);
+        }
+
+        .status-column-header.in-progress .status-column-count {
+            background: rgba(49, 130, 206, 0.2);
+            color: var(--info);
+        }
+
+        .status-column-header.ready-dev {
+            background: linear-gradient(135deg, rgba(128, 90, 213, 0.1), rgba(128, 90, 213, 0.05));
+            border-bottom-color: #805AD5;
+        }
+
+        .status-column-header.ready-dev .status-column-count {
+            background: rgba(128, 90, 213, 0.2);
+            color: #805AD5;
+        }
+
+        .status-column-header.todo {
+            background: linear-gradient(135deg, rgba(113, 128, 150, 0.1), rgba(113, 128, 150, 0.05));
+            border-bottom-color: var(--text-secondary);
+        }
+
+        .status-column-header.todo .status-column-count {
+            background: rgba(113, 128, 150, 0.2);
+            color: var(--text-secondary);
+        }
+
+        .status-column-body {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .status-column-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .status-column-body::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        .status-column-body::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .status-column-body::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-link {
+            color: var(--tm-blue);
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .status-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .status-column-body {
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TMG-609: Milestone 5 - LN Tour Onsale</h1>
+            <p class="subtitle">Global Unlock Experience for Live Nation Tours with Password Offers, Smart Queue & Sponsorship Integration</p>
+            <div class="meta">
+                <div class="meta-item">
+                    <strong>Owner:</strong> Kate Kasperski
+                </div>
+                <div class="meta-item">
+                    <strong>Due Date:</strong> July 1, 2026
+                </div>
+                <div class="meta-item">
+                    <strong>Status:</strong> <span class="status-badge status-in-progress">In Progress</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Generated:</strong> June 24, 2026
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Epics</div>
+                <div class="stat-value">29</div>
+                <div class="stat-detail">Across GEDP, PAS, TM1UP, TMSPON, CTHOST, GCO projects</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Total Stories</div>
+                <div class="stat-value">488</div>
+                <div class="stat-detail">Linked to Milestone 5 epics via Epic Link</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 83.4%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Stories Complete</div>
+                <div class="stat-value">407</div>
+                <div class="stat-detail">83.4% delivered (Done, Closed, Will Not Do)</div>
+                <div class="stat-detail" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color); font-size: 0.75rem;">81 remaining (22 Code Review/QA, 59 in progress/backlog)</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Epics Complete</div>
+                <div class="stat-value">9</div>
+                <div class="stat-detail">31% of total epics | 20 in dev</div>
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Epic Progress by Status</h2>
+                                    <div class="status-columns">
+
+                <!-- IN DEV COLUMN -->
+                <div class="status-column">
+                    <div class="status-column-header in-progress">
+                        <div class="status-column-title">In Dev</div>
+                        <div class="status-column-count">20</div>
+                    </div>
+                    <div class="status-column-body">
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Integration - Smart Queue</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5288" target="_blank" class="epic-key">GEDP-5288</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/13</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <span class="status-badge status-in-progress">Sign-off</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global Stage Site MVP</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-4957" target="_blank" class="epic-key">GEDP-4957</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">9/9</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <span class="status-badge status-in-progress">Sign-off</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Milestone 5 Event Launch</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7833" target="_blank" class="epic-key">GEDP-7833</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">65/66</span>
+                                    <span class="story-completion-percent">98%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 98%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Ticket offer unlock configuration</div>
+                                <a href="https://jira.livenation.com/browse/TM1UP-3360" target="_blank" class="epic-key">TM1UP-3360</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">7/13</span>
+                                    <span class="story-completion-percent">54%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 54%"></div>
+                                    </div>
+                                </div>
+                                <span class="status-badge status-in-progress">Code Review</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">RAS: Platform Resiliency Phase 1</div>
+                                <a href="https://jira.livenation.com/browse/PAS-29" target="_blank" class="epic-key">PAS-29</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">12/16</span>
+                                    <span class="story-completion-percent">75%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Milestone 5 Backend Support</div>
+                                <a href="https://jira.livenation.com/browse/PAS-4" target="_blank" class="epic-key">PAS-4</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">22/23</span>
+                                    <span class="story-completion-percent">96%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 96%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">RAS: Abuse Prevention</div>
+                                <a href="https://jira.livenation.com/browse/PAS-32" target="_blank" class="epic-key">PAS-32</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">15/18</span>
+                                    <span class="story-completion-percent">83%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 83%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">[GEDP M5] SLAS Eligibilities and Authoring</div>
+                                <a href="https://jira.livenation.com/browse/TMSPON-28429" target="_blank" class="epic-key">TMSPON-28429</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/16</span>
+                                    <span class="story-completion-percent">81%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 81%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Implement Map/List Interaction on Mobile Web</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7541" target="_blank" class="epic-key">GEDP-7541</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/17</span>
+                                    <span class="story-completion-percent">76%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 76%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Landing State Solution/Feature Flag</div>
+                                <a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">34/39</span>
+                                    <span class="story-completion-percent">87%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 87%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Limited Inventory Panel</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7922" target="_blank" class="epic-key">GEDP-7922</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/16</span>
+                                    <span class="story-completion-percent">81%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 81%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Presale/Onsale Details on EDP Onsale Page</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6583" target="_blank" class="epic-key">GEDP-6583</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">10/12</span>
+                                    <span class="story-completion-percent">83%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 83%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Support Legacy Platinum Inventory</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5297" target="_blank" class="epic-key">GEDP-5297</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion ">
+                                    <span class="story-completion-text">2/4</span>
+                                    <span class="story-completion-percent">50%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill " style="width: 50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Sponsorship M5 Misc. Features</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-8370" target="_blank" class="epic-key">GEDP-8370</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">12/15</span>
+                                    <span class="story-completion-percent">80%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Codeless Unlock for Live Nation All Access (Account Linking)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6779" target="_blank" class="epic-key">GEDP-6779</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion low-completion">
+                                    <span class="story-completion-text">4/13</span>
+                                    <span class="story-completion-percent">31%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill low" style="width: 31%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">DID Support MVP (no referrer links, no fan facing modal)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5003" target="_blank" class="epic-key">GEDP-5003</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">5/7</span>
+                                    <span class="story-completion-percent">71%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 71%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Account Linking (Checkout)</div>
+                                <a href="https://jira.livenation.com/browse/GCO-5716" target="_blank" class="epic-key">GCO-5716</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion low-completion">
+                                    <span class="story-completion-text">2/7</span>
+                                    <span class="story-completion-percent">29%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill low" style="width: 29%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Password Protected Offers - Unique Password</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5276" target="_blank" class="epic-key">GEDP-5276</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">6/8</span>
+                                    <span class="story-completion-percent">75%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Password Protected Offers - Rolled Up Offer Mask 2</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5278" target="_blank" class="epic-key">GEDP-5278</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">11/16</span>
+                                    <span class="story-completion-percent">69%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 69%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Sponsorship M5 Protected Offer Features</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-8217" target="_blank" class="epic-key">GEDP-8217</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion low-completion">
+                                    <span class="story-completion-text">1/20</span>
+                                    <span class="story-completion-percent">5%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill low" style="width: 5%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DONE COLUMN -->
+                <div class="status-column">
+                    <div class="status-column-header done">
+                        <div class="status-column-title">Done</div>
+                        <div class="status-column-count">9</div>
+                    </div>
+                    <div class="status-column-body">
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Add Unlock Offers Support to Offers-stream and Update Model</div>
+                                <a href="https://jira.livenation.com/browse/CTHOST-6551" target="_blank" class="epic-key">CTHOST-6551</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">5/5</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">List View - Featured Primary</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5252" target="_blank" class="epic-key">GEDP-5252</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">11/11</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Auto Routing Events and Scaling All Markets (Phase 1)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6136" target="_blank" class="epic-key">GEDP-6136</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">11/11</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Listings for HD Onsale (not HD/BA mode)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6731" target="_blank" class="epic-key">GEDP-6731</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">5/5</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Modernize Filtering Experience</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6914" target="_blank" class="epic-key">GEDP-6914</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">15/15</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Password Protected Offers - Implement Shared Password - HOST/TMC</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-8738" target="_blank" class="epic-key">GEDP-8738</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">27/27</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">RAS: Integrate Codeless Unlockable Offers into RAS</div>
+                                <a href="https://jira.livenation.com/browse/PAS-24" target="_blank" class="epic-key">PAS-24</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">15/15</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Auto Routing Events and Scaling All Markets (Phase 2)- New Page Mode Service and Replace Fastly Dictionaries</div>
+                                <a href="https://jira.livenation.com/browse/PAS-25" target="_blank" class="epic-key">PAS-25</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">24/24</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Auto Routing Events - New Page Mode Service with Page Variants</div>
+                                <a href="https://jira.livenation.com/browse/PAS-37" target="_blank" class="epic-key">PAS-37</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">18/18</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>Dashboard generated by <a href="https://claude.com/claude-code" class="footer-link" target="_blank">Claude Code</a> via <a href="https://jira.livenation.com/browse/TMG-609" class="footer-link" target="_blank">Jira MCP</a></p>
+            <p style="margin-top: 0.5rem;">Last updated: June 24, 2026 at 10:32 CDT | Data source: Jira Live Nation (cf[25701] = TMG-609, Epic Link queries) | Completed statuses: Done, Closed, Will Not Do (Closed) | Changes: +9 stories, +7 complete, GEDP-5288 100% complete (sign-off), GEDP-4957 100% complete (code review), TM1UP-3360 moved to code review</p>
+        </footer>
+    </div>
+</body>
+</html>
