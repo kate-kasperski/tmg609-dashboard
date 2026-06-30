@@ -337,24 +337,24 @@
             color: var(--info);
         }
 
-        .status-column-header.ready-dev {
+        .status-column-header.code-review {
             background: linear-gradient(135deg, rgba(128, 90, 213, 0.1), rgba(128, 90, 213, 0.05));
             border-bottom-color: #805AD5;
         }
 
-        .status-column-header.ready-dev .status-column-count {
+        .status-column-header.code-review .status-column-count {
             background: rgba(128, 90, 213, 0.2);
             color: #805AD5;
         }
 
-        .status-column-header.todo {
-            background: linear-gradient(135deg, rgba(113, 128, 150, 0.1), rgba(113, 128, 150, 0.05));
-            border-bottom-color: var(--text-secondary);
+        .status-column-header.sign-off {
+            background: linear-gradient(135deg, rgba(221, 107, 32, 0.1), rgba(221, 107, 32, 0.05));
+            border-bottom-color: var(--warning);
         }
 
-        .status-column-header.todo .status-column-count {
-            background: rgba(113, 128, 150, 0.2);
-            color: var(--text-secondary);
+        .status-column-header.sign-off .status-column-count {
+            background: rgba(221, 107, 32, 0.2);
+            color: var(--warning);
         }
 
         .status-column-body {
@@ -440,7 +440,7 @@
                     <strong>Status:</strong> <span class="status-badge status-in-progress">In Progress</span>
                 </div>
                 <div class="meta-item">
-                    <strong>Generated:</strong> June 24, 2026
+                    <strong>Generated:</strong> June 30, 2026
                 </div>
             </div>
         </header>
@@ -454,54 +454,38 @@
 
             <div class="stat-card">
                 <div class="stat-label">Total Stories</div>
-                <div class="stat-value">488</div>
+                <div class="stat-value">436</div>
                 <div class="stat-detail">Linked to Milestone 5 epics via Epic Link</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 83.4%"></div>
+                    <div class="progress-fill" style="width: 88.8%"></div>
                 </div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-label">Stories Complete</div>
-                <div class="stat-value">407</div>
-                <div class="stat-detail">83.4% delivered (Done, Closed, Will Not Do)</div>
-                <div class="stat-detail" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color); font-size: 0.75rem;">81 remaining (22 Code Review/QA, 59 in progress/backlog)</div>
+                <div class="stat-value">387</div>
+                <div class="stat-detail">88.8% delivered (Done, Closed, Will Not Do)</div>
+                <div class="stat-detail" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color); font-size: 0.75rem;">49 remaining in progress/backlog</div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-label">Epics Complete</div>
-                <div class="stat-value">9</div>
-                <div class="stat-detail">31% of total epics | 20 in dev</div>
+                <div class="stat-value">11</div>
+                <div class="stat-detail">38% of total epics | 18 in dev</div>
             </div>
         </div>
 
         <section class="section">
             <h2 class="section-title">Epic Progress by Status</h2>
-                                    <div class="status-columns">
+            <div class="status-columns">
 
                 <!-- IN DEV COLUMN -->
                 <div class="status-column">
                     <div class="status-column-header in-progress">
                         <div class="status-column-title">In Dev</div>
-                        <div class="status-column-count">20</div>
+                        <div class="status-column-count">18</div>
                     </div>
                     <div class="status-column-body">
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Integration - Smart Queue</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5288" target="_blank" class="epic-key">GEDP-5288</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/13</span>
-                                    <span class="story-completion-percent">100%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                                <span class="status-badge status-in-progress">Sign-off</span>
-                            </div>
-                        </div>
                         <div class="epic-card">
                             <div class="epic-header">
                                 <div class="epic-title">Global Stage Site MVP</div>
@@ -520,46 +504,76 @@
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
+                                <div class="epic-title">Integration - Smart Queue</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5288" target="_blank" class="epic-key">GEDP-5288</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">12/13</span>
+                                    <span class="story-completion-percent">92%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <span class="status-badge status-in-progress">Sign-off</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">DID Support MVP (no referrer links, no fan facing modal)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5003" target="_blank" class="epic-key">GEDP-5003</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">8/8</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Presale/Onsale Details on EDP Onsale Page</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6583" target="_blank" class="epic-key">GEDP-6583</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/13</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Codeless Unlock for Live Nation All Access (Account Linking)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6779" target="_blank" class="epic-key">GEDP-6779</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/13</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
                                 <div class="epic-title">Milestone 5 Event Launch</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-7833" target="_blank" class="epic-key">GEDP-7833</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">65/66</span>
-                                    <span class="story-completion-percent">98%</span>
+                                    <span class="story-completion-text">71/74</span>
+                                    <span class="story-completion-percent">96%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 98%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Ticket offer unlock configuration</div>
-                                <a href="https://jira.livenation.com/browse/TM1UP-3360" target="_blank" class="epic-key">TM1UP-3360</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">7/13</span>
-                                    <span class="story-completion-percent">54%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 54%"></div>
-                                    </div>
-                                </div>
-                                <span class="status-badge status-in-progress">Code Review</span>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">RAS: Platform Resiliency Phase 1</div>
-                                <a href="https://jira.livenation.com/browse/PAS-29" target="_blank" class="epic-key">PAS-29</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">12/16</span>
-                                    <span class="story-completion-percent">75%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 75%"></div>
+                                        <div class="mini-progress-fill high" style="width: 96%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -581,15 +595,15 @@
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">RAS: Abuse Prevention</div>
-                                <a href="https://jira.livenation.com/browse/PAS-32" target="_blank" class="epic-key">PAS-32</a>
+                                <div class="epic-title">Landing State Solution/Feature Flag</div>
+                                <a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">15/18</span>
-                                    <span class="story-completion-percent">83%</span>
+                                    <span class="story-completion-text">38/40</span>
+                                    <span class="story-completion-percent">95%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 83%"></div>
+                                        <div class="mini-progress-fill high" style="width: 95%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -601,37 +615,22 @@
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/16</span>
-                                    <span class="story-completion-percent">81%</span>
+                                    <span class="story-completion-text">17/18</span>
+                                    <span class="story-completion-percent">94%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 81%"></div>
+                                        <div class="mini-progress-fill high" style="width: 94%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Implement Map/List Interaction on Mobile Web</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-7541" target="_blank" class="epic-key">GEDP-7541</a>
+                                <div class="epic-title">Sponsorship M5 Misc. Features</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-8370" target="_blank" class="epic-key">GEDP-8370</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/17</span>
-                                    <span class="story-completion-percent">76%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 76%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Landing State Solution/Feature Flag</div>
-                                <a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">34/39</span>
+                                    <span class="story-completion-text">13/15</span>
                                     <span class="story-completion-percent">87%</span>
                                     <div class="mini-progress-bar">
                                         <div class="mini-progress-fill high" style="width: 87%"></div>
@@ -646,25 +645,40 @@
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/16</span>
-                                    <span class="story-completion-percent">81%</span>
+                                    <span class="story-completion-text">15/19</span>
+                                    <span class="story-completion-percent">79%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 81%"></div>
+                                        <div class="mini-progress-fill high" style="width: 79%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Presale/Onsale Details on EDP Onsale Page</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-6583" target="_blank" class="epic-key">GEDP-6583</a>
+                                <div class="epic-title">Password Protected Offers - Unique Password</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5276" target="_blank" class="epic-key">GEDP-5276</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">10/12</span>
-                                    <span class="story-completion-percent">83%</span>
+                                    <span class="story-completion-text">7/9</span>
+                                    <span class="story-completion-percent">78%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 83%"></div>
+                                        <div class="mini-progress-fill high" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Password Protected Offers - Rolled Up Offer Mask 2</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5278" target="_blank" class="epic-key">GEDP-5278</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">14/18</span>
+                                    <span class="story-completion-percent">78%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 78%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -675,58 +689,44 @@
                                 <a href="https://jira.livenation.com/browse/GEDP-5297" target="_blank" class="epic-key">GEDP-5297</a>
                             </div>
                             <div class="epic-meta">
-                                <div class="story-completion ">
-                                    <span class="story-completion-text">2/4</span>
-                                    <span class="story-completion-percent">50%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill " style="width: 50%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Sponsorship M5 Misc. Features</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-8370" target="_blank" class="epic-key">GEDP-8370</a>
-                            </div>
-                            <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">12/15</span>
-                                    <span class="story-completion-percent">80%</span>
+                                    <span class="story-completion-text">2/3</span>
+                                    <span class="story-completion-percent">67%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 80%"></div>
+                                        <div class="mini-progress-fill high" style="width: 67%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Codeless Unlock for Live Nation All Access (Account Linking)</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-6779" target="_blank" class="epic-key">GEDP-6779</a>
+                                <div class="epic-title">Implement Map/List Interaction on Mobile Web</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7541" target="_blank" class="epic-key">GEDP-7541</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion low-completion">
-                                    <span class="story-completion-text">4/13</span>
-                                    <span class="story-completion-percent">31%</span>
+                                    <span class="story-completion-text">6/17</span>
+                                    <span class="story-completion-percent">35%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill low" style="width: 31%"></div>
+                                        <div class="mini-progress-fill low" style="width: 35%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">DID Support MVP (no referrer links, no fan facing modal)</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5003" target="_blank" class="epic-key">GEDP-5003</a>
+                                <div class="epic-title">Ticket offer unlock configuration</div>
+                                <a href="https://jira.livenation.com/browse/TM1UP-3360" target="_blank" class="epic-key">TM1UP-3360</a>
                             </div>
                             <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">5/7</span>
-                                    <span class="story-completion-percent">71%</span>
+                                <div class="story-completion low-completion">
+                                    <span class="story-completion-text">5/14</span>
+                                    <span class="story-completion-percent">36%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 71%"></div>
+                                        <div class="mini-progress-fill low" style="width: 36%"></div>
                                     </div>
                                 </div>
+                                <span class="status-badge status-in-progress">Code Review</span>
                             </div>
                         </div>
                         <div class="epic-card">
@@ -746,45 +746,15 @@
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Password Protected Offers - Unique Password</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5276" target="_blank" class="epic-key">GEDP-5276</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">6/8</span>
-                                    <span class="story-completion-percent">75%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Password Protected Offers - Rolled Up Offer Mask 2</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5278" target="_blank" class="epic-key">GEDP-5278</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">11/16</span>
-                                    <span class="story-completion-percent">69%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 69%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
                                 <div class="epic-title">Sponsorship M5 Protected Offer Features</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-8217" target="_blank" class="epic-key">GEDP-8217</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion low-completion">
-                                    <span class="story-completion-text">1/20</span>
-                                    <span class="story-completion-percent">5%</span>
+                                    <span class="story-completion-text">2/22</span>
+                                    <span class="story-completion-percent">9%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill low" style="width: 5%"></div>
+                                        <div class="mini-progress-fill low" style="width: 9%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -796,7 +766,7 @@
                 <div class="status-column">
                     <div class="status-column-header done">
                         <div class="status-column-title">Done</div>
-                        <div class="status-column-count">9</div>
+                        <div class="status-column-count">11</div>
                     </div>
                     <div class="status-column-body">
                         <div class="epic-card">
@@ -921,15 +891,45 @@
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
+                                <div class="epic-title">RAS: Platform Resiliency Phase 1</div>
+                                <a href="https://jira.livenation.com/browse/PAS-29" target="_blank" class="epic-key">PAS-29</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">9/10</span>
+                                    <span class="story-completion-percent">90%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">RAS: Abuse Prevention</div>
+                                <a href="https://jira.livenation.com/browse/PAS-32" target="_blank" class="epic-key">PAS-32</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">16/16</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
                                 <div class="epic-title">Auto Routing Events - New Page Mode Service with Page Variants</div>
                                 <a href="https://jira.livenation.com/browse/PAS-37" target="_blank" class="epic-key">PAS-37</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">18/18</span>
-                                    <span class="story-completion-percent">100%</span>
+                                    <span class="story-completion-text">17/18</span>
+                                    <span class="story-completion-percent">94%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 94%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -942,7 +942,7 @@
 
         <footer>
             <p>Dashboard generated by <a href="https://claude.com/claude-code" class="footer-link" target="_blank">Claude Code</a> via <a href="https://jira.livenation.com/browse/TMG-609" class="footer-link" target="_blank">Jira MCP</a></p>
-            <p style="margin-top: 0.5rem;">Last updated: June 24, 2026 at 10:32 CDT | Data source: Jira Live Nation (cf[25701] = TMG-609, Epic Link queries) | Completed statuses: Done, Closed, Will Not Do (Closed) | Changes: +9 stories, +7 complete, GEDP-5288 100% complete (sign-off), GEDP-4957 100% complete (code review), TM1UP-3360 moved to code review</p>
+            <p style="margin-top: 0.5rem;">Last updated: June 30, 2026 at 06:52 CDT | Data source: Jira Live Nation (Epic Link queries) | Completed statuses: Done, Closed, Will Not Do (Closed) | Status: 11 epics complete (38%), 18 epics in development, 387/436 stories complete (88.8%) | Notable: 5 epics at 100% stories ready to close (GEDP-4957, GEDP-5003, GEDP-6583, GEDP-6779, GEDP-5288 at 92%), GEDP-8217 at 9% needs attention</p>
         </footer>
     </div>
 </body>
