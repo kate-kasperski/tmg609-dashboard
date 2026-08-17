@@ -422,25 +422,39 @@
                 max-height: 400px;
             }
         }
+
+        .target-dates {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .target-dates.overdue {
+            color: var(--danger);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>TMG-609: Milestone 5 - LN Tour Onsale</h1>
-            <p class="subtitle">Global Unlock Experience for Live Nation Tours with Password Offers, Smart Queue & Sponsorship Integration</p>
+            <p class="subtitle">Global Unlock Experience for Live Nation Tours with Password Offers, Smart Queue &amp; Sponsorship Integration</p>
             <div class="meta">
                 <div class="meta-item">
                     <strong>Owner:</strong> Kate Kasperski
                 </div>
                 <div class="meta-item">
-                    <strong>Due Date:</strong> July 1, 2026
+                    <strong>Due Date:</strong> July 31, 2026
                 </div>
                 <div class="meta-item">
                     <strong>Status:</strong> <span class="status-badge status-in-progress">In Progress</span>
                 </div>
                 <div class="meta-item">
-                    <strong>Generated:</strong> June 30, 2026
+                    <strong>RAG:</strong> <span class="status-badge status-done">On Track</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Generated:</strong> August 11, 2026 at 11:34 CDT
                 </div>
             </div>
         </header>
@@ -448,30 +462,30 @@
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Total Epics</div>
-                <div class="stat-value">29</div>
+                <div class="stat-value">30</div>
                 <div class="stat-detail">Across GEDP, PAS, TM1UP, TMSPON, CTHOST, GCO projects</div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-label">Total Stories</div>
-                <div class="stat-value">436</div>
+                <div class="stat-value">552</div>
                 <div class="stat-detail">Linked to Milestone 5 epics via Epic Link</div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 88.8%"></div>
+                    <div class="progress-fill" style="width: 98.4%"></div>
                 </div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-label">Stories Complete</div>
-                <div class="stat-value">387</div>
-                <div class="stat-detail">88.8% delivered (Done, Closed, Will Not Do)</div>
-                <div class="stat-detail" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color); font-size: 0.75rem;">49 remaining in progress/backlog</div>
+                <div class="stat-value">543</div>
+                <div class="stat-detail">98.4% delivered (Done, Closed, Will Not Do)</div>
+                <div class="stat-detail" style="margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border-color); font-size: 0.75rem;">9 remaining (7 in progress, 2 to do)</div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-label">Epics Complete</div>
-                <div class="stat-value">11</div>
-                <div class="stat-detail">38% of total epics | 18 in dev</div>
+                <div class="stat-value">27</div>
+                <div class="stat-detail">90.0% of total epics | 3 in dev | 0 not started</div>
             </div>
         </div>
 
@@ -479,296 +493,150 @@
             <h2 class="section-title">Epic Progress by Status</h2>
             <div class="status-columns">
 
-                <!-- IN DEV COLUMN -->
                 <div class="status-column">
                     <div class="status-column-header in-progress">
                         <div class="status-column-title">In Dev</div>
-                        <div class="status-column-count">18</div>
+                        <div class="status-column-count">3</div>
                     </div>
                     <div class="status-column-body">
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Global Stage Site MVP</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-4957" target="_blank" class="epic-key">GEDP-4957</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">9/9</span>
-                                    <span class="story-completion-percent">100%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                                <span class="status-badge status-in-progress">Sign-off</span>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Integration - Smart Queue</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5288" target="_blank" class="epic-key">GEDP-5288</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">12/13</span>
-                                    <span class="story-completion-percent">92%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 92%"></div>
-                                    </div>
-                                </div>
-                                <span class="status-badge status-in-progress">Sign-off</span>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">DID Support MVP (no referrer links, no fan facing modal)</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5003" target="_blank" class="epic-key">GEDP-5003</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">8/8</span>
-                                    <span class="story-completion-percent">100%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Presale/Onsale Details on EDP Onsale Page</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-6583" target="_blank" class="epic-key">GEDP-6583</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/13</span>
-                                    <span class="story-completion-percent">100%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Codeless Unlock for Live Nation All Access (Account Linking)</div>
+                                <div class="epic-title">Global EDP: Codeless Unlock for LN All Access and Sponsorship</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-6779" target="_blank" class="epic-key">GEDP-6779</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/13</span>
-                                    <span class="story-completion-percent">100%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Milestone 5 Event Launch</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-7833" target="_blank" class="epic-key">GEDP-7833</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">71/74</span>
-                                    <span class="story-completion-percent">96%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 96%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Milestone 5 Backend Support</div>
-                                <a href="https://jira.livenation.com/browse/PAS-4" target="_blank" class="epic-key">PAS-4</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">22/23</span>
-                                    <span class="story-completion-percent">96%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 96%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Landing State Solution/Feature Flag</div>
-                                <a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">38/40</span>
-                                    <span class="story-completion-percent">95%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 95%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">[GEDP M5] SLAS Eligibilities and Authoring</div>
-                                <a href="https://jira.livenation.com/browse/TMSPON-28429" target="_blank" class="epic-key">TMSPON-28429</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
                                     <span class="story-completion-text">17/18</span>
                                     <span class="story-completion-percent">94%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 94%"></div>
+                                        <div class="mini-progress-fill high" style="width: 94.4%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates overdue" title="Jira Target start - Target end">5/21 - 8/14</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Sponsorship M5 Misc. Features</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-8370" target="_blank" class="epic-key">GEDP-8370</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">13/15</span>
-                                    <span class="story-completion-percent">87%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 87%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Limited Inventory Panel</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-7922" target="_blank" class="epic-key">GEDP-7922</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">15/19</span>
-                                    <span class="story-completion-percent">79%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 79%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Password Protected Offers - Unique Password</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5276" target="_blank" class="epic-key">GEDP-5276</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">7/9</span>
-                                    <span class="story-completion-percent">78%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 78%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Password Protected Offers - Rolled Up Offer Mask 2</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5278" target="_blank" class="epic-key">GEDP-5278</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">14/18</span>
-                                    <span class="story-completion-percent">78%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 78%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Support Legacy Platinum Inventory</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-5297" target="_blank" class="epic-key">GEDP-5297</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion high-completion">
-                                    <span class="story-completion-text">2/3</span>
-                                    <span class="story-completion-percent">67%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 67%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Implement Map/List Interaction on Mobile Web</div>
-                                <a href="https://jira.livenation.com/browse/GEDP-7541" target="_blank" class="epic-key">GEDP-7541</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion low-completion">
-                                    <span class="story-completion-text">6/17</span>
-                                    <span class="story-completion-percent">35%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill low" style="width: 35%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Ticket offer unlock configuration</div>
-                                <a href="https://jira.livenation.com/browse/TM1UP-3360" target="_blank" class="epic-key">TM1UP-3360</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion low-completion">
-                                    <span class="story-completion-text">5/14</span>
-                                    <span class="story-completion-percent">36%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill low" style="width: 36%"></div>
-                                    </div>
-                                </div>
-                                <span class="status-badge status-in-progress">Code Review</span>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Account Linking (Checkout)</div>
-                                <a href="https://jira.livenation.com/browse/GCO-5716" target="_blank" class="epic-key">GCO-5716</a>
-                            </div>
-                            <div class="epic-meta">
-                                <div class="story-completion low-completion">
-                                    <span class="story-completion-text">2/7</span>
-                                    <span class="story-completion-percent">29%</span>
-                                    <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill low" style="width: 29%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="epic-card">
-                            <div class="epic-header">
-                                <div class="epic-title">Sponsorship M5 Protected Offer Features</div>
+                                <div class="epic-title">Global EDP: Sponsorship M5 Protected Offer Features</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-8217" target="_blank" class="epic-key">GEDP-8217</a>
                             </div>
                             <div class="epic-meta">
-                                <div class="story-completion low-completion">
-                                    <span class="story-completion-text">2/22</span>
-                                    <span class="story-completion-percent">9%</span>
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">30/34</span>
+                                    <span class="story-completion-percent">88%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill low" style="width: 9%"></div>
+                                        <div class="mini-progress-fill high" style="width: 88.2%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">5/23 - 8/17</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Ticket Offer Unlock Configuration</div>
+                                <a href="https://jira.livenation.com/browse/TM1UP-3360" target="_blank" class="epic-key">TM1UP-3360</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">29/33</span>
+                                    <span class="story-completion-percent">88%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 87.9%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/29 - 8/17</span>
+                                <span class="status-badge status-in-progress">Code Review</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- DONE COLUMN -->
                 <div class="status-column">
                     <div class="status-column-header done">
                         <div class="status-column-title">Done</div>
-                        <div class="status-column-count">11</div>
+                        <div class="status-column-count">27</div>
                     </div>
                     <div class="status-column-body">
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">GEDP M5: Platforms Integration and Authoring</div>
+                                <a href="https://jira.livenation.com/browse/TMSPON-28429" target="_blank" class="epic-key">TMSPON-28429</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">21/21</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">7/1 - 9/30</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Sponsorship M5 Misc. Features</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-8370" target="_blank" class="epic-key">GEDP-8370</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">18/18</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">3/23 - 7/15</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Account Linking</div>
+                                <a href="https://jira.livenation.com/browse/GCO-5716" target="_blank" class="epic-key">GCO-5716</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">7/7</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/6 - 8/5</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Authenticate Reserve</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6919" target="_blank" class="epic-key">GEDP-6919</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">7/7</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">7/31 - 8/5</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">GEDP: Presale/Onsale Details on EDP Onsale Page</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-6583" target="_blank" class="epic-key">GEDP-6583</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">17/17</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/15 - 7/29</span>
+                            </div>
+                        </div>
                         <div class="epic-card">
                             <div class="epic-header">
                                 <div class="epic-title">Add Unlock Offers Support to Offers-stream and Update Model</div>
@@ -779,14 +647,47 @@
                                     <span class="story-completion-text">5/5</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/17 - 5/18</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">List View - Featured Primary</div>
+                                <div class="epic-title">Global EDP: Global Stage Site MVP</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-4957" target="_blank" class="epic-key">GEDP-4957</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">9/9</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">3/16 - 7/16</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">GEDP: DID Support MVP (no referrer links, no fan facing modal)</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5003" target="_blank" class="epic-key">GEDP-5003</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">10/10</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/30 - 7/22</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: List View - Featured Primary</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-5252" target="_blank" class="epic-key">GEDP-5252</a>
                             </div>
                             <div class="epic-meta">
@@ -794,14 +695,79 @@
                                     <span class="story-completion-text">11/11</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/1 - 5/7</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Auto Routing Events and Scaling All Markets (Phase 1)</div>
+                                <div class="epic-title">Global EDP: Password Protected Offers - Unique Password</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5276" target="_blank" class="epic-key">GEDP-5276</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">9/9</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">5/11 - 7/6</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Password Protected Offers - Rolled Up Offer Mask 2</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5278" target="_blank" class="epic-key">GEDP-5278</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">19/19</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">5/11 - 7/10</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Integration - Smart Queue</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5288" target="_blank" class="epic-key">GEDP-5288</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">13/13</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">3/16 - 6/19</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Support Legacy Platinum Inventory</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-5297" target="_blank" class="epic-key">GEDP-5297</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">5/5</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/20 - 7/30</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Auto Routing Events and Scaling All Markets (Phase 1)</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-6136" target="_blank" class="epic-key">GEDP-6136</a>
                             </div>
                             <div class="epic-meta">
@@ -809,14 +775,15 @@
                                     <span class="story-completion-text">11/11</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">2/11 - 3/18</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Listings for HD Onsale (not HD/BA mode)</div>
+                                <div class="epic-title">Global EDP: Listings for HD Onsale (not HD/BA mode)</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-6731" target="_blank" class="epic-key">GEDP-6731</a>
                             </div>
                             <div class="epic-meta">
@@ -824,14 +791,15 @@
                                     <span class="story-completion-text">5/5</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/27 - 5/5</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Modernize Filtering Experience</div>
+                                <div class="epic-title">Global EDP: Modernize Filtering Experience</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-6914" target="_blank" class="epic-key">GEDP-6914</a>
                             </div>
                             <div class="epic-meta">
@@ -839,14 +807,63 @@
                                     <span class="story-completion-text">15/15</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">3/9 - 5/27</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Password Protected Offers - Implement Shared Password - HOST/TMC</div>
+                                <div class="epic-title">Global EDP: Implement Map/List Interaction on Mobile Web</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7541" target="_blank" class="epic-key">GEDP-7541</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">16/16</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/9 - 7/13</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Milestone 5 Event Launch</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7833" target="_blank" class="epic-key">GEDP-7833</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">73/73</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/1 - 7/30</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Limited Inventory Panel</div>
+                                <a href="https://jira.livenation.com/browse/GEDP-7922" target="_blank" class="epic-key">GEDP-7922</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">21/21</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/13 - 7/22</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Password Protected Offers - Implement Shared Password - HOST/TMC</div>
                                 <a href="https://jira.livenation.com/browse/GEDP-8738" target="_blank" class="epic-key">GEDP-8738</a>
                             </div>
                             <div class="epic-meta">
@@ -854,14 +871,31 @@
                                     <span class="story-completion-text">27/27</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/1 - 6/1</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">RAS: Integrate Codeless Unlockable Offers into RAS</div>
+                                <div class="epic-title">Global EDP: Milestone 5 Backend Support</div>
+                                <a href="https://jira.livenation.com/browse/PAS-4" target="_blank" class="epic-key">PAS-4</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">23/23</span>
+                                    <span class="story-completion-percent">100%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates" title="Jira Target start - Target end">3/23 - 7/15</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">RAS: Integrate Codeless Unlockable Offers into RAS for use with global edp</div>
                                 <a href="https://jira.livenation.com/browse/PAS-24" target="_blank" class="epic-key">PAS-24</a>
                             </div>
                             <div class="epic-meta">
@@ -869,14 +903,15 @@
                                     <span class="story-completion-text">15/15</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/16 - 6/22</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Auto Routing Events and Scaling All Markets (Phase 2)- New Page Mode Service and Replace Fastly Dictionaries</div>
+                                <div class="epic-title">Global EDP: Auto Routing Events and Scaling All Markets (Phase 2)- New Page Mode Service and Replace Fastly Dictionaries</div>
                                 <a href="https://jira.livenation.com/browse/PAS-25" target="_blank" class="epic-key">PAS-25</a>
                             </div>
                             <div class="epic-meta">
@@ -884,9 +919,10 @@
                                     <span class="story-completion-text">24/24</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/1 - 5/27</span>
                             </div>
                         </div>
                         <div class="epic-card">
@@ -896,12 +932,13 @@
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">9/10</span>
-                                    <span class="story-completion-percent">90%</span>
+                                    <span class="story-completion-text">10/10</span>
+                                    <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 90%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">4/6 - 6/1</span>
                             </div>
                         </div>
                         <div class="epic-card">
@@ -914,24 +951,42 @@
                                     <span class="story-completion-text">16/16</span>
                                     <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 100%</div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">3/1 - 6/30</span>
                             </div>
                         </div>
                         <div class="epic-card">
                             <div class="epic-header">
-                                <div class="epic-title">Auto Routing Events - New Page Mode Service with Page Variants</div>
+                                <div class="epic-title">Global EDP: Auto Routing Events - New Page Mode Service with Page Variants</div>
                                 <a href="https://jira.livenation.com/browse/PAS-37" target="_blank" class="epic-key">PAS-37</a>
                             </div>
                             <div class="epic-meta">
                                 <div class="story-completion high-completion">
-                                    <span class="story-completion-text">17/18</span>
-                                    <span class="story-completion-percent">94%</span>
+                                    <span class="story-completion-text">19/19</span>
+                                    <span class="story-completion-percent">100%</span>
                                     <div class="mini-progress-bar">
-                                        <div class="mini-progress-fill high" style="width: 94%"></div>
+                                        <div class="mini-progress-fill high" style="width: 100.0%"></div>
                                     </div>
                                 </div>
+                                <span class="target-dates" title="Jira Target start - Target end">5/1 - 6/30</span>
+                            </div>
+                        </div>
+                        <div class="epic-card">
+                            <div class="epic-header">
+                                <div class="epic-title">Global EDP: Landing State Solution/Feature Flag</div>
+                                <a href="https://jira.livenation.com/browse/PAS-34" target="_blank" class="epic-key">PAS-34</a>
+                            </div>
+                            <div class="epic-meta">
+                                <div class="story-completion high-completion">
+                                    <span class="story-completion-text">43/44</span>
+                                    <span class="story-completion-percent">98%</span>
+                                    <div class="mini-progress-bar">
+                                        <div class="mini-progress-fill high" style="width: 97.7%"></div>
+                                    </div>
+                                </div>
+                                <span class="target-dates overdue" title="Jira Target start - Target end">4/13 - 7/10</span>
                             </div>
                         </div>
                     </div>
@@ -942,7 +997,7 @@
 
         <footer>
             <p>Dashboard generated by <a href="https://claude.com/claude-code" class="footer-link" target="_blank">Claude Code</a> via <a href="https://jira.livenation.com/browse/TMG-609" class="footer-link" target="_blank">Jira MCP</a></p>
-            <p style="margin-top: 0.5rem;">Last updated: June 30, 2026 at 06:52 CDT | Data source: Jira Live Nation (Epic Link queries) | Completed statuses: Done, Closed, Will Not Do (Closed) | Status: 11 epics complete (38%), 18 epics in development, 387/436 stories complete (88.8%) | Notable: 5 epics at 100% stories ready to close (GEDP-4957, GEDP-5003, GEDP-6583, GEDP-6779, GEDP-5288 at 92%), GEDP-8217 at 9% needs attention</p>
+            <p style="margin-top: 0.5rem;">Last updated: August 17, 2026 (In Dev column refresh only) | Data source: Jira Live Nation (Epic Link queries) | Completed statuses: Done, Closed, Released, Will Not Do (Closed) | Status: 27 epics complete (90.0%), 3 in dev | Needs attention: GEDP-6779 dropped to 94.4% (new story GEDP-9525 added, target end 8/14 now overdue), GEDP-8217 at 88.2% (target end pushed to 8/17), TM1UP-3360 at 87.9% (target end 8/17, due today)</p>
         </footer>
     </div>
 </body>
